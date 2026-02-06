@@ -37,7 +37,7 @@ export function useVehicles(page: number, filters: VehicleFilters | null, sort: 
   return {
     vehicles: data?.vehicles ?? [],
     total: data?.total ?? 0,
-    totalPages: data ? Math.ceil(data.total / LIMIT) : 0,
+    totalPages: data?.totalPages ?? (data ? Math.ceil(data.total / LIMIT) : 0),
     loading,
     error,
   };

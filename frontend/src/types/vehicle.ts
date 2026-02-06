@@ -47,10 +47,11 @@ export interface Vehicle {
   export type SortOption= | "price-asc" | "price-desc" | "year-asc" | "year-desc";
 
   export interface VehiclesAPIResponse {
-    vehicles :Vehicle[];
-    total :number;
-    page :number;
-    limit :number;
+    vehicles: Vehicle[];
+    total: number;
+    page: number;
+    limit?: number;
+    totalPages?: number;
   }
 
   

@@ -1,4 +1,3 @@
-import { cache } from "react";
 import { headers } from "next/headers";
 import type { Vehicle } from "@/types/vehicle";
 
@@ -9,11 +8,11 @@ async function getBaseUrl(): Promise<string> {
   return `${proto}://${host}`;
 }
 
-export const getVehicle = cache(async (id: string): Promise<Vehicle | null> => {
+export async function getVehicle(id: string): Promise<Vehicle | null> {
   const baseUrl = await getBaseUrl();
   const res = await fetch(`${baseUrl}/api/vehicles/${id}`, {
     next: { revalidate: 60 },
   });
   if (!res.ok) return null;
   return res.json();
-});
+}
