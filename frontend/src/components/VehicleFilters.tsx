@@ -7,8 +7,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Filter, X } from "lucide-react";
 import FilterCheckboxGroup from "@/components/FilterCheckboxGroup";
+import { MANUFACTURERS } from "@/data/vehicles";
 
-const MANUFACTURERS = ["BMW", "Tesla", "Toyota", "Ford", "Porsche", "Mercedes-Benz", "Honda", "Chevrolet"];
 const TYPES = Object.values(VehicleType);
 const LABEL_CLASS = "text-xs font-medium text-muted-foreground uppercase tracking-wider";
 const INPUT_CLASS = "bg-background rounded-lg h-9 border-0 shadow-subtle";

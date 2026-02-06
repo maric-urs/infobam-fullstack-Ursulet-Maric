@@ -336,5 +336,6 @@ export const mockVehicles: Vehicle[] =
         createdAt: new Date("2024-02-12"),
         updatedAt: new Date("2024-02-12"),
       },
-    
-]
+];
+
+export const MANUFACTURERS = [...new Set(mockVehicles.map((v) => v.manufacturer))].sort();
