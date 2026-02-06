@@ -3,6 +3,7 @@ import Link from "next/link";
 const testRoutes = [
   { name: "VehicleCard", href: "/test/vehicle-card" },
   { name: "NavSidebar", href: "/test/nav-sidebar" },
+  { name: "FilterCheckboxGroup", href: "/test/filter-checkbox-group" },
 ];
 
 export default function TestPage() {
