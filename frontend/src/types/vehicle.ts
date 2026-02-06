@@ -30,12 +30,6 @@ export interface Vehicle {
     PLUGIN_HYBRID = "PLUGIN_HYBRID",
   }
 
-  export interface VehicleFilter {
-    manufacturer?: string[];
-    type?: VehicleType[];
-    yearMin?:number;
-    yearMax?:number;
-  }
 
   export interface VehicleFilters {
     manufacturers?: string[];

@@ -13,7 +13,7 @@ export default function VehicleCard({ vehicle }: { vehicle: Vehicle }) {
     <Card className={cardClass}>
       <div className="relative w-full aspect-video overflow-hidden rounded-t-xl bg-muted shrink-0">
         {vehicle.images[0] ? (
-          <img src={vehicle.images[0]} alt={`${vehicle.manufacturer} ${vehicle.model}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+          <img src={vehicle.images[0]} alt={`${vehicle.manufacturer} ${vehicle.model}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
         ) : (
           <div className="w-full h-full flex items-center justify-center text-muted-foreground text-sm">Aucune image</div>
         )}
