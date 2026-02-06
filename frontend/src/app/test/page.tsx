@@ -6,6 +6,7 @@ const testRoutes = [
   { name: "FilterCheckboxGroup", href: "/test/filter-checkbox-group" },
   { name: "VehicleFilters", href: "/test/vehicle-filters" },
   { name: "VehicleSortSelector", href: "/test/vehicle-sort-selector" },
+  { name: "VehiclePagination", href: "/test/vehicle-pagination" },
 ];
 
 export default function TestPage() {
