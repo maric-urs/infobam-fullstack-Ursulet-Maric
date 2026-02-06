@@ -2,6 +2,7 @@ import Link from "next/link";
 
 const testRoutes = [
   { name: "VehicleCard", href: "/test/vehicle-card" },
+  { name: "NavSidebar", href: "/test/nav-sidebar" },
 ];
 
 export default function TestPage() {
