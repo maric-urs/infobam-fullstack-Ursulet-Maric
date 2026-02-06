@@ -1,0 +1,91 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "API Véhicules",
+    "version": "1.0.0"
+  },
+  "servers": [{ "url": "/" }],
+  "paths": {
+    "/api/vehicles": {
+      "get": {
+        "summary": "Liste des véhicules",
+        "parameters": [
+          { "in": "query", "name": "page", "schema": { "type": "integer", "minimum": 1, "default": 1 } },
+          { "in": "query", "name": "limit", "schema": { "type": "integer", "minimum": 1, "default": 10 } },
+          { "in": "query", "name": "sort", "schema": { "type": "string", "enum": ["price-asc", "price-desc", "year-asc", "year-desc"] } },
+          { "in": "query", "name": "manufacturers", "schema": { "type": "string" }, "description": "Virgules" },
+          { "in": "query", "name": "types", "schema": { "type": "string" }, "description": "Virgules" },
+          { "in": "query", "name": "yearMin", "schema": { "type": "integer" } },
+          { "in": "query", "name": "yearMax", "schema": { "type": "integer" } }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/VehiclesAPIResponse" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/vehicles/{id}": {
+      "get": {
+        "summary": "Un véhicule",
+        "parameters": [
+          { "in": "path", "name": "id", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Vehicle" }
+              }
+            }
+          },
+          "404": { "description": "Non trouvé" }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "VehicleType": {
+        "type": "string",
+        "enum": ["SUV", "SEDAN", "TRUCK", "SPORTS", "LUXURY", "ELECTRIC"]
+      },
+      "FuelType": {
+        "type": "string",
+        "enum": ["GASOLINE", "DIESEL", "ELECTRIC", "HYBRID", "PLUGIN_HYBRID"]
+      },
+      "Vehicle": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "manufacturer": { "type": "string" },
+          "model": { "type": "string" },
+          "year": { "type": "integer" },
+          "type": { "$ref": "#/components/schemas/VehicleType" },
+          "price": { "type": "number" },
+          "fuelType": { "$ref": "#/components/schemas/FuelType" },
+          "transmission": { "type": "string" },
+          "mileage": { "type": "number", "nullable": true },
+          "features": { "type": "array", "items": { "type": "string" } },
+          "images": { "type": "array", "items": { "type": "string" } },
+          "description": { "type": "string" },
+          "createdAt": { "type": "string", "format": "date-time" },
+          "updatedAt": { "type": "string", "format": "date-time" }
+        }
+      },
+      "VehiclesAPIResponse": {
+        "type": "object",
+        "properties": {
+          "vehicles": { "type": "array", "items": { "$ref": "#/components/schemas/Vehicle" } },
+          "total": { "type": "integer" },
+          "page": { "type": "integer" },
+          "totalPages": { "type": "integer" }
+        }
+      }
+    }
+  }
+}
