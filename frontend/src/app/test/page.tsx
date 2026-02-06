@@ -4,6 +4,7 @@ const testRoutes = [
   { name: "VehicleCard", href: "/test/vehicle-card" },
   { name: "NavSidebar", href: "/test/nav-sidebar" },
   { name: "FilterCheckboxGroup", href: "/test/filter-checkbox-group" },
+  { name: "VehicleFilters", href: "/test/vehicle-filters" },
 ];
 
 export default function TestPage() {
