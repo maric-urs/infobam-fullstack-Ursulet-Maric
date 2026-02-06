@@ -52,10 +52,10 @@
 
 @layer utilities {
   .shadow-subtle {
-    box-shadow: 0 1px 3px rgb(0 0 0 / 0.04);
+    box-shadow: 0 1px 3px rgba(255, 255, 255, 0.04);
   }
   .dark .shadow-subtle {
-    box-shadow: 0 1px 3px rgb(0 0 0 / 0.15);
+    box-shadow: 0 1px 3px rgba(108, 108, 108, 0.15);
   }
 }
 
@@ -66,6 +66,7 @@
 .dark * {
   scrollbar-color: rgb(255 255 255 / 0.4) rgb(255 255 255 / 0.1);
 }
+
 *::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -87,21 +88,28 @@
   background: rgb(0 0 0 / 0.5);
 }
 .dark *::-webkit-scrollbar-thumb {
-  background: rgb(255 255 255 / 0.4);
+  background: rgba(255, 255, 255, 0.173);
 }
 .dark *::-webkit-scrollbar-thumb:hover {
   background: rgb(255 255 255 / 0.55);
 }
 
+.dark *.bg-card {
+  background-color: hsl(0deg 0% 5% / 0%);
+}
 @layer base {
   * {
     @apply border-transparent;
   }
   body {
     @apply text-foreground font-sans antialiased min-h-screen;
-    background: linear-gradient(to bottom, #ffffff, #d1d5db);
+    background: #fffff;
   }
   .dark body {
-    background: linear-gradient(to bottom, #000000, #0a0a0a);
+    background: #000000;
+    background: -webkit-linear-gradient(178deg, rgba(0, 0, 0, 1) 59%, rgb(12, 12, 12) 100%);
+    background: -moz-linear-gradient(178deg, rgba(0, 0, 0, 1) 59%, rgb(27, 27, 27) 100%);
+    background: linear-gradient(178deg, rgba(0, 0, 0, 1) 59%, rgb(19, 19, 19) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000", endColorstr="#3F034A", GradientType=0);
   }
 }
