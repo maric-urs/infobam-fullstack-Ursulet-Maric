@@ -5,6 +5,7 @@ const testRoutes = [
   { name: "NavSidebar", href: "/test/nav-sidebar" },
   { name: "FilterCheckboxGroup", href: "/test/filter-checkbox-group" },
   { name: "VehicleFilters", href: "/test/vehicle-filters" },
+  { name: "VehicleSortSelector", href: "/test/vehicle-sort-selector" },
 ];
 
 export default function TestPage() {
