@@ -55,6 +55,7 @@ export default async function VehicleDetailPage({
                   src={vehicle.images[0]}
                   alt={`${vehicle.manufacturer} ${vehicle.model}`}
                   className="w-full h-full object-cover"
+                  loading="lazy"
                 />
               ) : (
                 <div className="w-full h-full flex items-center justify-center text-muted-foreground">
@@ -69,7 +70,7 @@ export default async function VehicleDetailPage({
                     key={index}
                     className="aspect-video rounded-lg overflow-hidden bg-muted"
                   >
-                    <img src={image} alt="" className="w-full h-full object-cover" />
+                    <img src={image} alt="" className="w-full h-full object-cover" loading="lazy" />
                   </div>
                 ))}
               </div>
