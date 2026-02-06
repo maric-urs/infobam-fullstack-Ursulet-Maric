@@ -2,11 +2,15 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { Filter } from "lucide-react";
 import VehicleCard from "@/components/VehicleCard";
 import VehicleSortSelector from "@/components/VehicleSortSelector";
 import VehiclePagination from "@/components/VehiclePagination";
 import NavSidebar from "@/components/NavSidebar";
 import ThemeToggle from "@/components/ThemeToggle";
+import VehicleFilters from "@/components/VehicleFilters";
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
 import { useVehicles } from "@/hooks/useVehicles";
 import type { VehicleFilters as FiltersType, SortOption } from "@/types/vehicle";
 
@@ -14,6 +18,7 @@ export default function VehicleCardGrid() {
   const [filters, setFilters] = useState<FiltersType | null>(null);
   const [sort, setSort] = useState<SortOption | null>(null);
   const [page, setPage] = useState(1);
+  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
   useEffect(() => {
     setPage(1);
@@ -27,9 +32,21 @@ export default function VehicleCardGrid() {
 
       <div className="flex-1 flex flex-col min-w-0">
         <header className="sticky top-0 z-10 bg-background/95 backdrop-blur px-4 py-3 shadow-subtle">
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center gap-2">
             <h1 className="font-bold text-xl">Véhicules</h1>
-            <div className="lg:hidden">
+            <div className="flex items-center gap-2 lg:hidden">
+              <Sheet open={mobileFiltersOpen} onOpenChange={setMobileFiltersOpen}>
+                <SheetTrigger asChild>
+                  <Button variant="outline" size="sm" className="gap-2">
+                    <Filter className="h-4 w-4" />
+                    Filtres
+                  </Button>
+                </SheetTrigger>
+                <SheetContent side="left" className="w-[280px] p-4 sm:max-w-[280px] overflow-y-auto">
+                  <SheetTitle className="sr-only">Filtres</SheetTitle>
+                  <VehicleFilters onFilterChange={setFilters} />
+                </SheetContent>
+              </Sheet>
               <ThemeToggle />
             </div>
           </div>
