@@ -64,7 +64,7 @@ export default async function VehicleDetailPage({
             </div>
             {vehicle.images?.length > 1 && (
               <div className="grid grid-cols-3 gap-2">
-                {vehicle.images.slice(1, 4).map((image, index) => (
+                {vehicle.images.slice(1, 4).map((image: string, index: number) => (
                   <div
                     key={index}
                     className="aspect-video rounded-lg overflow-hidden bg-muted"
@@ -115,7 +115,7 @@ export default async function VehicleDetailPage({
               <div>
                 <h2 className="font-semibold mb-2">Caractéristiques</h2>
                 <div className="flex flex-wrap gap-2">
-                  {vehicle.features.map((feature, index) => (
+                  {vehicle.features.map((feature: string, index: number) => (
                     <Badge key={index} variant="outline">
                       {feature}
                     </Badge>
