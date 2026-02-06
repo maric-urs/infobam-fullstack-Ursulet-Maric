@@ -37,6 +37,13 @@ export interface Vehicle {
     yearMax?:number;
   }
 
+  export interface VehicleFilters {
+    manufacturers?: string[];
+    types?: VehicleType[];
+    yearMin?: number;
+    yearMax?: number;
+  }
+
   export type SortOption= | "price-asc" | "price-desc" | "year-asc" | "year-desc";
 
   export interface VehiclesAPIResponse {
